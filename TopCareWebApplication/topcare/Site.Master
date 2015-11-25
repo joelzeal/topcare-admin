@@ -1,0 +1,113 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="TopCareWebApplication.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    
+    <link href="../Styles/Site.css" rel="stylesheet" type="text/css" />
+    <title>Topcare </title>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style type="text/css">
+    body{Width:100%}
+    </style>
+    <link href="../Styles/BootstrapAlerts.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form runat="server" >
+    <div class="page" style="width:99.9%;margin:0;height:100%">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    Top Care Network
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td ><div class="clear hideSkiplink" style="height:40px">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="Default.aspx" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="About.aspx" Text="Members" Value="Members">
+                            <asp:MenuItem NavigateUrl="admin/CreateMember.aspx" Text="New Member" 
+                                Value="New Member"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="admin/MembersList.aspx" Text="Members List" 
+                                Value="Members List"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Schedules" Value="Schedules">
+                            <asp:MenuItem NavigateUrl="admin/NewSchedule.aspx" Text="New Schedule" 
+                                Value="New Schedule"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="admin/ScheduleList_MultiView.aspx" Text="Schedule List" 
+                                Value="Schedule List"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Reports" Value="Reports">
+                            <asp:MenuItem NavigateUrl="ReportPages/SchAttendanceSummary_Manual.aspx" 
+                                Text="Attendance Summary" Value="Attendance Summary"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/topcare/ReportPages/ScheAttendanceDetailedRpt.aspx" 
+                                Text="Schedule Detailed Report Type 1" Value="Schedule Detailed Report">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/topcare/ReportPages/ScheAttendanceDetailedRpt_noCash.aspx" 
+                                Text="Schedule Detailed Report Type 2" Value="Schedule Detailed Report Type 2">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/topcare/ReportPages/MembersList.aspx" 
+                                Text="Members List" Value="Members List"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Staff" Value="Staff">
+                            <asp:MenuItem NavigateUrl="~/topcare/admin/DBSRocordList.aspx" 
+                                Text="DBS Records" Value="DBS Records"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Settings" Value="Settings">
+                            <asp:MenuItem Text="User Management" Value="User Management"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/topcare/admin/TransportTypes.aspx" 
+                                Text="Transport Options" Value="Transport Options"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/topcare/admin/ProgrammeTimeTemplate.aspx" 
+                                Text="Program Template" Value="Program Template"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/topcare/admin/EmailSettings.aspx" 
+                                Text="SMTP Configuration" Value="SMTP Configuration"></asp:MenuItem>
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+                    </td>
+                    <td style="width:300px; background-color: #3A4F63;">
+                        <table border="0" cellpadding="0" cellspacing="0" align="right">
+                                <tr valign="middle">
+                                    <td>
+                                        &nbsp;
+                                        <asp:TextBox ID="txtSearch" CssClass="txtinput" runat="server" Width="200px"></asp:TextBox>
+                                    </td>
+                                    <td>
+                                        <asp:ImageButton ID="imgBtnSearch" ImageUrl="~/images/searchButton.png" runat="server" Width="35px" Height="35px"
+                                             ValidationGroup="vg1" onclick="imgBtnSearch_Click" />
+                                    </td>
+                                </tr>
+                            </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="main" style="height:100%">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>

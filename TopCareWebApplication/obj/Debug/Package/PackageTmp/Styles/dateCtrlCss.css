@@ -1,0 +1,34 @@
+﻿.mainCtrl
+{
+    border: 1px solid #0075C4;
+}
+
+.mainTop a
+{
+    text-decoration: none;
+    font-family: 'century Gothic';
+}
+
+.mainTop
+{
+    background-color: #0075C4;
+    padding: 3px;
+    color: White;
+    font-weight: bold;
+    font-family: 'century Gothic';
+    font-size: 10pt;
+    text-decoration: none;
+}
+
+
+.mainMiddle 
+{
+    padding: 1px;
+    font-weight: bolder;
+    font-family: 'century Gothic';
+    font-size: 22pt;
+    color:Black;
+}
+
+
+

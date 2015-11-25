@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+<configuration>
+	<!--<startup useLegacyV2RuntimeActivationPolicy="true">
+		<supportedRuntime version="v4.0" />
+	</startup>-->
+
+	<!--<system.data>
+    <DbProviderFactories>
+      <add name="SQLite Data Provider" invariant="System.Data.SQLite" description=".Net Framework Data Provider for SQLite" type="System.Data.SQLite.SQLiteFactory, System.Data.SQLite" />
+    </DbProviderFactories>
+  </system.data>-->
+
+  <appSettings>
+    <add key="ChartImageHandler" value="Storage=file;Timeout=20;Url=~/tempImages/;" />
+  </appSettings>
+  
+  
+  <system.webServer>
+    <validation validateIntegratedModeConfiguration="false"/>
+    <handlers>
+      <!--<remove name="ChartImageHandler" />
+      <add name="ChartImageHandler" preCondition="integratedMode" verb="GET,HEAD,POST"
+      path="ChartImg.axd" type="System.Web.UI.DataVisualization.Charting.ChartHttpHandler,&#xD;&#xA;System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+                                                                                                 />-->
+      <add name="ReportViewerWebControlHandler" preCondition="integratedMode" verb="*" path="Reserved.ReportViewerWebControl.axd" type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    </handlers>
+  </system.webServer>
+  <system.web>
+  
+  <roleManager enabled="true" />
+  <httpHandlers>
+    <add path="Reserved.ReportViewerWebControl.axd" verb="*" type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+      validate="false" />
+  </httpHandlers>
+  <httpRuntime requestValidationMode="2.0" />
+  
+  
+    <!--<httpHandlers>
+      <add verb="*" path="Reserved.ReportViewerWebControl.axd" type = "Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    </httpHandlers>-->
+    <customErrors mode="Off"/>
+
+    <pages>
+      <controls>
+        <add tagPrefix="asp"
+             namespace="System.Web.UI.DataVisualization.Charting"
+         assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+      </controls>
+    </pages>
+   
+    
+    <compilation debug="true" 
+                 strict="false" 
+                 explicit="true" 
+                 targetFramework="4.0">
+      <assemblies>
+        <add assembly="System.Web.Extensions.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />
+        <add assembly="System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+        <add assembly="System.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="Microsoft.VisualC.STLCLR, Version=2.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+
+        <add assembly="System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+
+
+        <add assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="Microsoft.Build.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="System.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"/>
+      </assemblies>
+      <buildProviders>
+        <add extension=".edmx" type="System.Data.Entity.Design.AspNet.EntityDesignerBuildProvider" />
+        <add extension=".rdlc" type="Microsoft.Reporting.RdlBuildProvider, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      </buildProviders>
+    </compilation>
+    <authentication mode="Forms">
+      <forms loginUrl="~/Account/Login.aspx" timeout="2880" />
+    </authentication>
+
+    <membership defaultProvider="SqlProvider">
+      <providers>
+        <add
+          name="SqlProvider"
+          type="System.Web.Security.SqlMembershipProvider, System.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+          connectionStringName="TopCareConnectionString"
+          applicationName="/"
+          enablePasswordRetrieval="true"
+          enablePasswordReset="true"
+          requiresQuestionAndAnswer="true"
+          requiresUniqueEmail="false"
+          passwordFormat="Encrypted"
+          maxInvalidPasswordAttempts="5"
+          passwordAttemptWindow="10" />
+      </providers>
+    </membership>
+
+    <profile>
+      <providers>
+        <clear/>
+        <add name="SqlProvider"
+            connectionStringName="TopCareConnectionString"
+            applicationName="/"
+            type="System.Web.Profile.SqlProfileProvider, System.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/>
+      </providers>
+
+    </profile>
+    <roleManager defaultProvider="SqlProvider" enabled="true" >
+      <providers>
+        <clear/>
+        <add
+          name="SqlProvider"
+          type="System.Web.Security.SqlRoleProvider, System.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+          connectionStringName="TopCareConnectionString"
+          applicationName="/" />
+      </providers>
+    </roleManager>
+    
+
+   
+    
+    <!-- Configure the Membership provider.-->
+    <!--<membership defaultProvider="SQLiteMembershipProvider">
+      <providers>
+        <clear />
+        <add applicationName="SQLite ASP.NET Provider" passwordFormat="Clear" minRequiredNonalphanumericCharacters="0" minRequiredPasswordLength="2" maxInvalidPasswordAttempts="2" enablePasswordReset="true" enablePasswordRetrieval="true" passwordAttemptWindow="10" requiresQuestionAndAnswer="false" requiresUniqueEmail="false" connectionStringName="SQLiteDbConnection" name="SQLiteMembershipProvider" type="TechInfoSystems.Data.SQLite.SQLiteMembershipProvider, TechInfoSystems.Data.SQLiteProvider" />
+      </providers>
+    </membership>
+    <roleManager enabled="true" cacheRolesInCookie="true" cookieProtection="Validation" defaultProvider="SQLiteRoleProvider">
+      <providers>
+        <clear />
+        <add applicationName="SQLite ASP.NET Provider" connectionStringName="SQLiteDbConnection" name="SQLiteRoleProvider" type="TechInfoSystems.Data.SQLite.SQLiteRoleProvider, TechInfoSystems.Data.SQLiteProvider" />
+      </providers>
+    </roleManager>
+    <profile defaultProvider="SQLiteProfileProvider">
+      <providers>
+        <clear />
+        <add applicationName="SQLite ASP.NET Provider" connectionStringName="SQLiteDbConnection" name="SQLiteProfileProvider" type="TechInfoSystems.Data.SQLite.SQLiteProfileProvider, TechInfoSystems.Data.SQLiteProvider" />
+      </providers>
+    </profile>-->
+    <!--<securityPolicy>
+      <trustLevel name="Full" />
+    </securityPolicy>-->
+  </system.web>
+  
+  
+  <connectionStrings>
+    <add name="WellHallEntities" connectionString="metadata=res://*/App_Code.WellHall.csdl|res://*/App_Code.WellHall.ssdl|res://*/App_Code.WellHall.msl;provider=System.Data.SQLite;provider connection string='data source=&quot;|DataDirectory|WellHall.s3db&quot;'" providerName="System.Data.EntityClient" />
+    <add name="ConnectionString" connectionString="data source=&quot;|DataDirectory|WellHall.s3db&quot;" providerName="System.Data.SQLite" />
+    <add name="ConnectionString2" connectionString="data source=&quot;|DataDirectory|WellHall.s3db&quot;" providerName="System.Data.SQLite" />
+    <add name="SQLiteDbConnection" connectionString="data source=&quot;|DataDirectory|WellHall.s3db&quot;" providerName="System.Data.SQLite" />
+    <add name="phEntities" connectionString="metadata=res://*/App_Code.BNCModel.csdl|res://*/App_Code.BNCModel.ssdl|res://*/App_Code.BNCModel.msl;provider=System.Data.SQLite;provider connection string='data source=&quot;|DataDirectory|ph.s3db&quot;'" providerName="System.Data.EntityClient" />
+    <add name="TopCareConnectionString" connectionString="Data Source=213.171.201.131;Initial Catalog=TopCare;user id=topcareuser;password=Password@1" providerName="System.Data.SqlClient" />
+    <add name="TopCareEntities" connectionString="metadata=res://*/TopCare.csdl|res://*/TopCare.ssdl|res://*/TopCare.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=213.171.201.131;Initial Catalog=TopCare;user id=topcareuser;password=Password@1;MultipleActiveResultSets=True&quot;" providerName="System.Data.EntityClient" />
+    <add name="TopCareEntities1" connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=213.171.201.131;Initial Catalog=TopCare;user id=topcareuser;password=Password@1;MultipleActiveResultSets=True&quot;" providerName="System.Data.EntityClient" />
+  </connectionStrings>
+</configuration>

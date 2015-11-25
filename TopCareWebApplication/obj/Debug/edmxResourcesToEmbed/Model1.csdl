@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TopCareModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="TopCareEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MemberAttendances" EntityType="TopCareModel.MemberAttendance" />
+    <EntitySet Name="Members" EntityType="TopCareModel.Member" />
+    <EntitySet Name="MemberSubscriptionsPaids" EntityType="TopCareModel.MemberSubscriptionsPaid" />
+    <EntitySet Name="Nationalities" EntityType="TopCareModel.Nationality" />
+    <EntitySet Name="PaymentMethods" EntityType="TopCareModel.PaymentMethod" />
+    <EntitySet Name="ScheduleDetails" EntityType="TopCareModel.ScheduleDetail" />
+    <EntitySet Name="Schedules" EntityType="TopCareModel.Schedule" />
+    <EntitySet Name="TeamMembers" EntityType="TopCareModel.TeamMember" />
+    <AssociationSet Name="FK_MemberAttendance_Members" Association="TopCareModel.FK_MemberAttendance_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="MemberAttendance" EntitySet="MemberAttendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberAttendance_Schedules" Association="TopCareModel.FK_MemberAttendance_Schedules">
+      <End Role="Schedules" EntitySet="Schedules" />
+      <End Role="MemberAttendance" EntitySet="MemberAttendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberSubscriptionsPaid_Members" Association="TopCareModel.FK_MemberSubscriptionsPaid_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="MemberSubscriptionsPaid" EntitySet="MemberSubscriptionsPaids" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScheduleDetails_Schedules" Association="TopCareModel.FK_ScheduleDetails_Schedules">
+      <End Role="Schedules" EntitySet="Schedules" />
+      <End Role="ScheduleDetails" EntitySet="ScheduleDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="MemberAttendance">
+    <Key>
+      <PropertyRef Name="MemberAttendanceID" />
+    </Key>
+    <Property Name="MemberAttendanceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ScheduleID" Type="Int32" />
+    <Property Name="MemberID" Type="Int32" />
+    <Property Name="HasAttended" Type="Boolean" />
+    <Property Name="HasPaid" Type="Boolean" />
+    <Property Name="AmountPaid" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PaymentRecievedBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PaymentMethodID" Type="Int32" />
+    <Property Name="PaymentDate" Type="DateTime" />
+    <Property Name="Narration" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Member" Relationship="TopCareModel.FK_MemberAttendance_Members" FromRole="MemberAttendance" ToRole="Members" />
+    <NavigationProperty Name="Schedule" Relationship="TopCareModel.FK_MemberAttendance_Schedules" FromRole="MemberAttendance" ToRole="Schedules" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Name="MemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DOB" Type="DateTime" />
+    <Property Name="Address" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Postcode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NationalityID" Type="Int32" />
+    <Property Name="DietaryRequirements" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+    <Property Name="NextOfKin_Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NextOfKin_Address" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NextOfKin_Postcode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NextOfKin_PhoneNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PhoneNumber1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PhoneNumber2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PhoneNumber3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="MemberAttendances" Relationship="TopCareModel.FK_MemberAttendance_Members" FromRole="Members" ToRole="MemberAttendance" />
+    <NavigationProperty Name="MemberSubscriptionsPaids" Relationship="TopCareModel.FK_MemberSubscriptionsPaid_Members" FromRole="Members" ToRole="MemberSubscriptionsPaid" />
+  </EntityType>
+  <EntityType Name="MemberSubscriptionsPaid">
+    <Key>
+      <PropertyRef Name="MemberSubscriptionPaidID" />
+    </Key>
+    <Property Name="MemberSubscriptionPaidID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberID" Type="Int32" />
+    <Property Name="Month" Type="Int32" />
+    <Property Name="AmountPaid" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PaymentDate" Type="DateTime" />
+    <Property Name="PaymentRecievedBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ModifiedDate" Type="DateTime" />
+    <NavigationProperty Name="Member" Relationship="TopCareModel.FK_MemberSubscriptionsPaid_Members" FromRole="MemberSubscriptionsPaid" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="Nationality">
+    <Key>
+      <PropertyRef Name="NationalityID" />
+    </Key>
+    <Property Name="NationalityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Decription" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="PaymentMethodID" />
+    </Key>
+    <Property Name="PaymentMethodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ScheduleDetail">
+    <Key>
+      <PropertyRef Name="ScheduleDetailID" />
+    </Key>
+    <Property Name="ScheduleDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ScheduleID" Type="Int32" />
+    <Property Name="StartTime" Type="Time" />
+    <Property Name="EndTime" Type="Time" />
+    <NavigationProperty Name="Schedule" Relationship="TopCareModel.FK_ScheduleDetails_Schedules" FromRole="ScheduleDetails" ToRole="Schedules" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleID" />
+    </Key>
+    <Property Name="ScheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateOfEvent" Type="DateTime" />
+    <Property Name="MealsToBeServed" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ProgramTitle" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="MemberAttendances" Relationship="TopCareModel.FK_MemberAttendance_Schedules" FromRole="Schedules" ToRole="MemberAttendance" />
+    <NavigationProperty Name="ScheduleDetails" Relationship="TopCareModel.FK_ScheduleDetails_Schedules" FromRole="Schedules" ToRole="ScheduleDetails" />
+  </EntityType>
+  <EntityType Name="TeamMember">
+    <Key>
+      <PropertyRef Name="TeamMemberID" />
+    </Key>
+    <Property Name="TeamMemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeamMemberFirstName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="TeamMemberLastName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_MemberAttendance_Members">
+    <End Role="Members" Type="TopCareModel.Member" Multiplicity="0..1" />
+    <End Role="MemberAttendance" Type="TopCareModel.MemberAttendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="MemberAttendance">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberAttendance_Schedules">
+    <End Role="Schedules" Type="TopCareModel.Schedule" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MemberAttendance" Type="TopCareModel.MemberAttendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedules">
+        <PropertyRef Name="ScheduleID" />
+      </Principal>
+      <Dependent Role="MemberAttendance">
+        <PropertyRef Name="ScheduleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberSubscriptionsPaid_Members">
+    <End Role="Members" Type="TopCareModel.Member" Multiplicity="0..1" />
+    <End Role="MemberSubscriptionsPaid" Type="TopCareModel.MemberSubscriptionsPaid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="MemberSubscriptionsPaid">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScheduleDetails_Schedules">
+    <End Role="Schedules" Type="TopCareModel.Schedule" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ScheduleDetails" Type="TopCareModel.ScheduleDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedules">
+        <PropertyRef Name="ScheduleID" />
+      </Principal>
+      <Dependent Role="ScheduleDetails">
+        <PropertyRef Name="ScheduleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

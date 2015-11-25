@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TopCareModelStoreContainer" CdmEntityContainer="TopCareEntities1">
+    <EntitySetMapping Name="MemberAttendances">
+      <EntityTypeMapping TypeName="TopCareModel.MemberAttendance">
+        <MappingFragment StoreEntitySet="MemberAttendance">
+          <ScalarProperty Name="MemberAttendanceID" ColumnName="MemberAttendanceID" />
+          <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="HasAttended" ColumnName="HasAttended" />
+          <ScalarProperty Name="HasPaid" ColumnName="HasPaid" />
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+          <ScalarProperty Name="PaymentRecievedBy" ColumnName="PaymentRecievedBy" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="Narration" ColumnName="Narration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="TopCareModel.Member">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+          <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
+          <ScalarProperty Name="DietaryRequirements" ColumnName="DietaryRequirements" />
+          <ScalarProperty Name="NextOfKin_Name" ColumnName="NextOfKin_Name" />
+          <ScalarProperty Name="NextOfKin_Address" ColumnName="NextOfKin_Address" />
+          <ScalarProperty Name="NextOfKin_Postcode" ColumnName="NextOfKin_Postcode" />
+          <ScalarProperty Name="NextOfKin_PhoneNumber" ColumnName="NextOfKin_PhoneNumber" />
+          <ScalarProperty Name="PhoneNumber1" ColumnName="PhoneNumber1" />
+          <ScalarProperty Name="PhoneNumber2" ColumnName="PhoneNumber2" />
+          <ScalarProperty Name="PhoneNumber3" ColumnName="PhoneNumber3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberSubscriptionsPaids">
+      <EntityTypeMapping TypeName="TopCareModel.MemberSubscriptionsPaid">
+        <MappingFragment StoreEntitySet="MemberSubscriptionsPaid">
+          <ScalarProperty Name="MemberSubscriptionPaidID" ColumnName="MemberSubscriptionPaidID" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="PaymentRecievedBy" ColumnName="PaymentRecievedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nationalities">
+      <EntityTypeMapping TypeName="TopCareModel.Nationality">
+        <MappingFragment StoreEntitySet="Nationalities">
+          <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
+          <ScalarProperty Name="Decription" ColumnName="Decription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMethods">
+      <EntityTypeMapping TypeName="TopCareModel.PaymentMethod">
+        <MappingFragment StoreEntitySet="PaymentMethods">
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScheduleDetails">
+      <EntityTypeMapping TypeName="TopCareModel.ScheduleDetail">
+        <MappingFragment StoreEntitySet="ScheduleDetails">
+          <ScalarProperty Name="ScheduleDetailID" ColumnName="ScheduleDetailID" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schedules">
+      <EntityTypeMapping TypeName="TopCareModel.Schedule">
+        <MappingFragment StoreEntitySet="Schedules">
+          <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+          <ScalarProperty Name="DateOfEvent" ColumnName="DateOfEvent" />
+          <ScalarProperty Name="MealsToBeServed" ColumnName="MealsToBeServed" />
+          <ScalarProperty Name="ProgramTitle" ColumnName="ProgramTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamMembers">
+      <EntityTypeMapping TypeName="TopCareModel.TeamMember">
+        <MappingFragment StoreEntitySet="TeamMembers">
+          <ScalarProperty Name="TeamMemberID" ColumnName="TeamMemberID" />
+          <ScalarProperty Name="TeamMemberFirstName" ColumnName="TeamMemberFirstName" />
+          <ScalarProperty Name="TeamMemberLastName" ColumnName="TeamMemberLastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

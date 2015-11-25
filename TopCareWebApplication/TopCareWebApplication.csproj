@@ -1,0 +1,689 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{828C025D-C0F7-4547-9660-6472482634F1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TopCareWebApplication</RootNamespace>
+    <AssemblyName>TopCareWebApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.50508.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DataVisualization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="images\1324638439_user-group-new.png" />
+    <Content Include="images\1404858556_cancel.png" />
+    <Content Include="images\1406035831_money_gold.png" />
+    <Content Include="images\1406035855_wallet_louis_vuitton_bills.png" />
+    <Content Include="images\1406035963_Dollars.png" />
+    <Content Include="images\AddLoan.png" />
+    <Content Include="images\attendanceCheck.png" />
+    <Content Include="images\birthday_gift.png" />
+    <Content Include="images\cancel.png" />
+    <Content Include="images\check_green.png" />
+    <Content Include="images\check_red.png" />
+    <Content Include="images\check_yellow.png" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\edit.png" />
+    <Content Include="images\Groups.png" />
+    <Content Include="images\printSchedule.png" />
+    <Content Include="images\printStatement.png" />
+    <Content Include="images\save.png" />
+    <Content Include="images\searchButton.png" />
+    <Content Include="images\searchResult.png" />
+    <Content Include="images\SUV.png" />
+    <Content Include="images\SUV_green.png" />
+    <Content Include="images\telephoneRed.png" />
+    <Content Include="images\telephoneGreen.png" />
+    <Content Include="images\UserGroupicon.png" />
+    <Content Include="images\usericon.png" />
+    <Content Include="Styles\BootstrapAlerts.css" />
+    <Content Include="Styles\dateCtrlCss.css" />
+    <Content Include="topcare\admin\AttendanceCheck.aspx" />
+    <Content Include="topcare\admin\AttendanceHistory.aspx" />
+    <Content Include="topcare\admin\DBSRocordList.aspx" />
+    <Content Include="topcare\admin\EmailReport.aspx" />
+    <Content Include="topcare\admin\EmailSentSuccesfully.aspx" />
+    <Content Include="topcare\admin\EmailSettings.aspx" />
+    <Content Include="topcare\admin\NewAddonService.aspx" />
+    <Content Include="topcare\admin\NotificationsPage.aspx" />
+    <Content Include="topcare\admin\ProgrammeTimeTemplate.aspx" />
+    <Content Include="topcare\admin\RSVPStatus.aspx" />
+    <Content Include="topcare\admin\Default.aspx" />
+    <Content Include="topcare\admin\ScheduleDetails_new.aspx" />
+    <Content Include="topcare\admin\ScheduleList_MultiView.aspx" />
+    <Content Include="topcare\admin\MembersList.aspx" />
+    <Content Include="topcare\admin\smtpSettings.aspx" />
+    <Content Include="topcare\admin\SubscriptionYears.aspx" />
+    <Content Include="topcare\admin\MemberFeePaymentForSch.aspx" />
+    <Content Include="topcare\admin\ScheduleListUpcoming.aspx" />
+    <Content Include="topcare\admin\CreateMember.aspx" />
+    <Content Include="topcare\admin\NewSchedule.aspx" />
+    <Content Include="topcare\admin\PaymentMethods.aspx" />
+    <Content Include="topcare\admin\ScheduleDetails.aspx" />
+    <Content Include="topcare\admin\ScheduleList.aspx" />
+    <Content Include="topcare\admin\SearchResultsPage.aspx" />
+    <Content Include="topcare\admin\SubscriptionFeePayments.aspx" />
+    <Content Include="Data\Countries.xml" />
+    <Content Include="Global.asax" />
+    <Content Include="topcare\admin\TransportTypes.aspx" />
+    <Content Include="topcare\admin\WeeklyClientFollowup.aspx" />
+    <Content Include="topcare\images\1324638439_user-group-new.png" />
+    <Content Include="topcare\ReportPages\EmptyAttendanceSheet.aspx" />
+    <Content Include="topcare\ReportPages\ScheAttendanceDetailedRpt_noCash.aspx" />
+    <Content Include="topcare\ReportPages\MembersList.aspx" />
+    <Content Include="topcare\ReportPages\ScheAttendanceDetailedRpt.aspx" />
+    <Content Include="topcare\ReportPages\PreScheduleFollowupSummary.aspx" />
+    <Content Include="topcare\ReportPages\SchAttendanceSummary_Manual.aspx" />
+    <Content Include="topcare\ReportPages\SchAttendanceSummary.aspx" />
+    <Content Include="topcare\ReportPages\ScheduleDetails.aspx" />
+    <Content Include="topcare\ReportPages\ScheduleDetailsMulti.aspx" />
+    <Content Include="topcare\ReportPages\xxx.aspx" />
+    <Content Include="topcare\Scripts\jquery-1.7.2.min.js" />
+    <Content Include="topcare\Scripts\jquery.cookie.js" />
+    <Content Include="topcare\Scripts\jquery.fancybox.js" />
+    <Content Include="topcare\Scripts\jquery.fancybox.pack.js" />
+    <Content Include="topcare\Scripts\jquery.hoverIntent.minified.js" />
+    <Content Include="topcare\Scripts\jquery.jscrollpane.js" />
+    <Content Include="topcare\Scripts\jquery.jscrollpane.min.js" />
+    <Content Include="topcare\Scripts\jquery.min.js" />
+    <Content Include="topcare\Scripts\jquery.mousewheel-3.0.6.pack.js" />
+    <Content Include="topcare\Scripts\jquery.mousewheel.js" />
+    <Content Include="Styles\blue.css" />
+    <Content Include="Styles\jquery.jscrollpane.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="topcare\Default.aspx" />
+    <Content Include="topcare\Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="topcare\Scripts\jquery-1.4.1.js" />
+    <Content Include="topcare\Scripts\jquery-1.4.1.min.js" />
+    <Content Include="topcare\UserControls\AttendanceWebUserControl.ascx" />
+    <Content Include="topcare\UserControls\DateDisplayWebUserControl.ascx" />
+    <Content Include="topcare\UserControls\PreSFToolbarUserControl.ascx" />
+    <Content Include="topcare\UserControls\PopupHeaderWebUsrCtrl.ascx" />
+    <Content Include="topcare\UserControls\RSVPWebUserControl.ascx" />
+    <Content Include="topcare\UserControls\ScheduleDetailsToolbarUserControl1.ascx" />
+    <Content Include="topcare\UserControls\MemberDetailsToolbarUserControl.ascx" />
+    <Content Include="topcare\UserControls\MemberToolbarUserControl1.ascx" />
+    <Content Include="topcare\UserControls\jquery.ptTimeSelect.css" />
+    <Content Include="topcare\UserControls\jquery.ptTimeSelect.js" />
+    <Content Include="topcare\UserControls\SchedulesToolbarUserControl1.ascx" />
+    <Content Include="topcare\UserControls\SubscriptionFeeWebUserControl.ascx" />
+    <Content Include="topcare\UserControls\TimePickerWebUserControl_New.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web.config_forLive" />
+    <None Include="Web.Debug.config_forLive">
+      <DependentUpon>Web.config_forLive</DependentUpon>
+    </None>
+    <None Include="Web.Release.config_forLive">
+      <DependentUpon>Web.config_forLive</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\AttendanceCheck.aspx.cs">
+      <DependentUpon>AttendanceCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\AttendanceCheck.aspx.designer.cs">
+      <DependentUpon>AttendanceCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\AttendanceHistory.aspx.cs">
+      <DependentUpon>AttendanceHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\AttendanceHistory.aspx.designer.cs">
+      <DependentUpon>AttendanceHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\DBSRocordList.aspx.cs">
+      <DependentUpon>DBSRocordList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\DBSRocordList.aspx.designer.cs">
+      <DependentUpon>DBSRocordList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\EmailReport.aspx.cs">
+      <DependentUpon>EmailReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\EmailReport.aspx.designer.cs">
+      <DependentUpon>EmailReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\EmailSentSuccesfully.aspx.cs">
+      <DependentUpon>EmailSentSuccesfully.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\EmailSentSuccesfully.aspx.designer.cs">
+      <DependentUpon>EmailSentSuccesfully.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\EmailSettings.aspx.cs">
+      <DependentUpon>EmailSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\EmailSettings.aspx.designer.cs">
+      <DependentUpon>EmailSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\NewAddonService.aspx.cs">
+      <DependentUpon>NewAddonService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\NewAddonService.aspx.designer.cs">
+      <DependentUpon>NewAddonService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\NotificationsPage.aspx.cs">
+      <DependentUpon>NotificationsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\NotificationsPage.aspx.designer.cs">
+      <DependentUpon>NotificationsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\ProgrammeTimeTemplate.aspx.cs">
+      <DependentUpon>ProgrammeTimeTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\ProgrammeTimeTemplate.aspx.designer.cs">
+      <DependentUpon>ProgrammeTimeTemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\RSVPStatus.aspx.cs">
+      <DependentUpon>RSVPStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\RSVPStatus.aspx.designer.cs">
+      <DependentUpon>RSVPStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\ScheduleDetails_new.aspx.cs">
+      <DependentUpon>ScheduleDetails_new.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\ScheduleDetails_new.aspx.designer.cs">
+      <DependentUpon>ScheduleDetails_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\ScheduleList_MultiView.aspx.cs">
+      <DependentUpon>ScheduleList_MultiView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\ScheduleList_MultiView.aspx.designer.cs">
+      <DependentUpon>ScheduleList_MultiView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\MembersList.aspx.cs">
+      <DependentUpon>MembersList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\MembersList.aspx.designer.cs">
+      <DependentUpon>MembersList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\smtpSettings.aspx.cs">
+      <DependentUpon>smtpSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\smtpSettings.aspx.designer.cs">
+      <DependentUpon>smtpSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\SubscriptionYears.aspx.cs">
+      <DependentUpon>SubscriptionYears.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\SubscriptionYears.aspx.designer.cs">
+      <DependentUpon>SubscriptionYears.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\MemberFeePaymentForSch.aspx.cs">
+      <DependentUpon>MemberFeePaymentForSch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\MemberFeePaymentForSch.aspx.designer.cs">
+      <DependentUpon>MemberFeePaymentForSch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\ScheduleListUpcoming.aspx.cs">
+      <DependentUpon>ScheduleListUpcoming.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\ScheduleListUpcoming.aspx.designer.cs">
+      <DependentUpon>ScheduleListUpcoming.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\CreateMember.aspx.cs">
+      <DependentUpon>CreateMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\CreateMember.aspx.designer.cs">
+      <DependentUpon>CreateMember.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\NewSchedule.aspx.cs">
+      <DependentUpon>NewSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\NewSchedule.aspx.designer.cs">
+      <DependentUpon>NewSchedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\PaymentMethods.aspx.cs">
+      <DependentUpon>PaymentMethods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\PaymentMethods.aspx.designer.cs">
+      <DependentUpon>PaymentMethods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\ScheduleDetails.aspx.cs">
+      <DependentUpon>ScheduleDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\ScheduleDetails.aspx.designer.cs">
+      <DependentUpon>ScheduleDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\ScheduleList.aspx.cs">
+      <DependentUpon>ScheduleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\ScheduleList.aspx.designer.cs">
+      <DependentUpon>ScheduleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\SearchResultsPage.aspx.cs">
+      <DependentUpon>SearchResultsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\SearchResultsPage.aspx.designer.cs">
+      <DependentUpon>SearchResultsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\SubscriptionFeePayments.aspx.cs">
+      <DependentUpon>SubscriptionFeePayments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\SubscriptionFeePayments.aspx.designer.cs">
+      <DependentUpon>SubscriptionFeePayments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\TransportTypes.aspx.cs">
+      <DependentUpon>TransportTypes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\TransportTypes.aspx.designer.cs">
+      <DependentUpon>TransportTypes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\admin\WeeklyClientFollowup.aspx.cs">
+      <DependentUpon>WeeklyClientFollowup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\admin\WeeklyClientFollowup.aspx.designer.cs">
+      <DependentUpon>WeeklyClientFollowup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\BirthdayCelebrant.cs" />
+    <Compile Include="topcare\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="topcare\ReportPages\EmptyAttendanceSheet.aspx.cs">
+      <DependentUpon>EmptyAttendanceSheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\ReportPages\EmptyAttendanceSheet.aspx.designer.cs">
+      <DependentUpon>EmptyAttendanceSheet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\ReportPages\ScheAttendanceDetailedRpt_noCash.aspx.cs">
+      <DependentUpon>ScheAttendanceDetailedRpt_noCash.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\ReportPages\ScheAttendanceDetailedRpt_noCash.aspx.designer.cs">
+      <DependentUpon>ScheAttendanceDetailedRpt_noCash.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\ReportPages\MembersList.aspx.cs">
+      <DependentUpon>MembersList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\ReportPages\MembersList.aspx.designer.cs">
+      <DependentUpon>MembersList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\ReportPages\ScheAttendanceDetailedRpt.aspx.cs">
+      <DependentUpon>ScheAttendanceDetailedRpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\ReportPages\ScheAttendanceDetailedRpt.aspx.designer.cs">
+      <DependentUpon>ScheAttendanceDetailedRpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\ReportPages\PreScheduleFollowupSummary.aspx.cs">
+      <DependentUpon>PreScheduleFollowupSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\ReportPages\PreScheduleFollowupSummary.aspx.designer.cs">
+      <DependentUpon>PreScheduleFollowupSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\ReportPages\SchAttendanceSummary_Manual.aspx.cs">
+      <DependentUpon>SchAttendanceSummary_Manual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\ReportPages\SchAttendanceSummary_Manual.aspx.designer.cs">
+      <DependentUpon>SchAttendanceSummary_Manual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\ReportPages\SchAttendanceSummary.aspx.cs">
+      <DependentUpon>SchAttendanceSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\ReportPages\SchAttendanceSummary.aspx.designer.cs">
+      <DependentUpon>SchAttendanceSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\ReportPages\ScheduleDetails.aspx.cs">
+      <DependentUpon>ScheduleDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\ReportPages\ScheduleDetails.aspx.designer.cs">
+      <DependentUpon>ScheduleDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\ReportPages\ScheduleDetailsMulti.aspx.cs">
+      <DependentUpon>ScheduleDetailsMulti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\ReportPages\ScheduleDetailsMulti.aspx.designer.cs">
+      <DependentUpon>ScheduleDetailsMulti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\ReportPages\xxx.aspx.cs">
+      <DependentUpon>xxx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\ReportPages\xxx.aspx.designer.cs">
+      <DependentUpon>xxx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TopCare.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TopCare.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="TopCareDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TopCareDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\UserControls\AttendanceWebUserControl.ascx.cs">
+      <DependentUpon>AttendanceWebUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\UserControls\AttendanceWebUserControl.ascx.designer.cs">
+      <DependentUpon>AttendanceWebUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\UserControls\DateDisplayWebUserControl.ascx.cs">
+      <DependentUpon>DateDisplayWebUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\UserControls\DateDisplayWebUserControl.ascx.designer.cs">
+      <DependentUpon>DateDisplayWebUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\UserControls\PreSFToolbarUserControl.ascx.cs">
+      <DependentUpon>PreSFToolbarUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\UserControls\PreSFToolbarUserControl.ascx.designer.cs">
+      <DependentUpon>PreSFToolbarUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\UserControls\PopupHeaderWebUsrCtrl.ascx.cs">
+      <DependentUpon>PopupHeaderWebUsrCtrl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\UserControls\PopupHeaderWebUsrCtrl.ascx.designer.cs">
+      <DependentUpon>PopupHeaderWebUsrCtrl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\UserControls\RSVPWebUserControl.ascx.cs">
+      <DependentUpon>RSVPWebUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\UserControls\RSVPWebUserControl.ascx.designer.cs">
+      <DependentUpon>RSVPWebUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\UserControls\ScheduleDetailsToolbarUserControl1.ascx.cs">
+      <DependentUpon>ScheduleDetailsToolbarUserControl1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\UserControls\ScheduleDetailsToolbarUserControl1.ascx.designer.cs">
+      <DependentUpon>ScheduleDetailsToolbarUserControl1.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\UserControls\MemberDetailsToolbarUserControl.ascx.cs">
+      <DependentUpon>MemberDetailsToolbarUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\UserControls\MemberDetailsToolbarUserControl.ascx.designer.cs">
+      <DependentUpon>MemberDetailsToolbarUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\UserControls\MemberToolbarUserControl1.ascx.cs">
+      <DependentUpon>MemberToolbarUserControl1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\UserControls\MemberToolbarUserControl1.ascx.designer.cs">
+      <DependentUpon>MemberToolbarUserControl1.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\UserControls\SchedulesToolbarUserControl1.ascx.cs">
+      <DependentUpon>SchedulesToolbarUserControl1.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\UserControls\SchedulesToolbarUserControl1.ascx.designer.cs">
+      <DependentUpon>SchedulesToolbarUserControl1.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\UserControls\SubscriptionFeeWebUserControl.ascx.cs">
+      <DependentUpon>SubscriptionFeeWebUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\UserControls\SubscriptionFeeWebUserControl.ascx.designer.cs">
+      <DependentUpon>SubscriptionFeeWebUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="topcare\UserControls\TimePickerWebUserControl_New.ascx.cs">
+      <DependentUpon>TimePickerWebUserControl_New.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="topcare\UserControls\TimePickerWebUserControl_New.ascx.designer.cs">
+      <DependentUpon>TimePickerWebUserControl_New.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <Content Include="topcare\Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="topcare\admin\Web.config" />
+    <None Include="App_Data\app_data.sqlite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="TopCare.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>TopCare.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TopCareDataSet.xsc">
+      <DependentUpon>TopCareDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TopCareDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TopCareDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TopCareDataSet.xss">
+      <DependentUpon>TopCareDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TopCare.dbml.layout">
+      <DependentUpon>TopCare.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="topcare\Reports\rptAttendanceDetailedRpt_noMoney.rdlc" />
+    <EmbeddedResource Include="topcare\Reports\rptAttendanceDetailedReport.rdlc" />
+    <EmbeddedResource Include="topcare\Reports\rptAttendanceDetailedReportNoMoney_sub.rdlc" />
+    <EmbeddedResource Include="topcare\Reports\rptAttendanceDetailedReport_1.rdlc" />
+    <EmbeddedResource Include="topcare\Reports\rptAttendanceDetailedReport_sub.rdlc" />
+    <EmbeddedResource Include="topcare\Reports\rptAttendanceSheet.rdlc" />
+    <EmbeddedResource Include="topcare\Reports\rptCompanyProfile.rdlc" />
+    <EmbeddedResource Include="topcare\Reports\rptMembersList.rdlc" />
+    <EmbeddedResource Include="topcare\Reports\rptPreScheduleFollowup.rdlc" />
+    <EmbeddedResource Include="topcare\Reports\rptScheduleSummary.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DropDownChosen\DropDownChosen.csproj">
+      <Project>{61034352-74E2-409D-8F9B-FDC5B4030524}</Project>
+      <Name>DropDownChosen</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6244</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

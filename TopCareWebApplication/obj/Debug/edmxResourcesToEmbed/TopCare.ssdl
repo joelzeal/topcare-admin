@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TopCareModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="TopCareModelStoreContainer">
+    <EntitySet Name="MemberAttendance" EntityType="TopCareModel.Store.MemberAttendance" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Members" EntityType="TopCareModel.Store.Members" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberSubscriptionsPaid" EntityType="TopCareModel.Store.MemberSubscriptionsPaid" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Nationalities" EntityType="TopCareModel.Store.Nationalities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PaymentMethods" EntityType="TopCareModel.Store.PaymentMethods" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ScheduleDetails" EntityType="TopCareModel.Store.ScheduleDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Schedules" EntityType="TopCareModel.Store.Schedules" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_MemberAttendance_Members" Association="TopCareModel.Store.FK_MemberAttendance_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="MemberAttendance" EntitySet="MemberAttendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberAttendance_Schedules" Association="TopCareModel.Store.FK_MemberAttendance_Schedules">
+      <End Role="Schedules" EntitySet="Schedules" />
+      <End Role="MemberAttendance" EntitySet="MemberAttendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberSubscriptionsPaid_Members" Association="TopCareModel.Store.FK_MemberSubscriptionsPaid_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="MemberSubscriptionsPaid" EntitySet="MemberSubscriptionsPaid" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScheduleDetails_Schedules" Association="TopCareModel.Store.FK_ScheduleDetails_Schedules">
+      <End Role="Schedules" EntitySet="Schedules" />
+      <End Role="ScheduleDetails" EntitySet="ScheduleDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="MemberAttendance">
+    <Key>
+      <PropertyRef Name="MemberAttendanceID" />
+    </Key>
+    <Property Name="MemberAttendanceID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ScheduleID" Type="int" />
+    <Property Name="MemberID" Type="int" />
+    <Property Name="HasAttended" Type="bit" />
+    <Property Name="HasPaid" Type="bit" />
+    <Property Name="AmountPaid" Type="decimal" Scale="2" />
+    <Property Name="PaymentRecievedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentMethodID" Type="int" />
+    <Property Name="PaymentDate" Type="datetime" />
+    <Property Name="Narration" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Name="MemberID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Postcode" Type="nvarchar" MaxLength="50" />
+    <Property Name="NationalityID" Type="int" />
+    <Property Name="DietaryRequirements" Type="nvarchar" MaxLength="300" />
+    <Property Name="NextOfKin_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="NextOfKin_Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="NextOfKin_Postcode" Type="nvarchar" MaxLength="50" />
+    <Property Name="NextOfKin_PhoneNumber" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MemberSubscriptionsPaid">
+    <Key>
+      <PropertyRef Name="MemberSubscriptionPaidID" />
+    </Key>
+    <Property Name="MemberSubscriptionPaidID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MemberID" Type="int" />
+    <Property Name="Month" Type="int" />
+    <Property Name="AmountPaid" Type="decimal" Scale="2" />
+    <Property Name="PaymentDate" Type="datetime" />
+    <Property Name="PaymentRecievedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Nationalities">
+    <Key>
+      <PropertyRef Name="NationalityID" />
+    </Key>
+    <Property Name="NationalityID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Decription" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PaymentMethods">
+    <Key>
+      <PropertyRef Name="PaymentMethodID" />
+    </Key>
+    <Property Name="PaymentMethodID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ScheduleDetails">
+    <Key>
+      <PropertyRef Name="ScheduleDetailID" />
+    </Key>
+    <Property Name="ScheduleDetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Item" Type="nvarchar" MaxLength="50" />
+    <Property Name="TimeAllocated" Type="time" />
+    <Property Name="ScheduleID" Type="int" />
+  </EntityType>
+  <EntityType Name="Schedules">
+    <Key>
+      <PropertyRef Name="ScheduleID" />
+    </Key>
+    <Property Name="ScheduleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DateOfEvent" Type="date" />
+    <Property Name="MealsToBeServed" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProgramTitle" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_MemberAttendance_Members">
+    <End Role="Members" Type="TopCareModel.Store.Members" Multiplicity="0..1" />
+    <End Role="MemberAttendance" Type="TopCareModel.Store.MemberAttendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="MemberAttendance">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberAttendance_Schedules">
+    <End Role="Schedules" Type="TopCareModel.Store.Schedules" Multiplicity="0..1" />
+    <End Role="MemberAttendance" Type="TopCareModel.Store.MemberAttendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedules">
+        <PropertyRef Name="ScheduleID" />
+      </Principal>
+      <Dependent Role="MemberAttendance">
+        <PropertyRef Name="ScheduleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberSubscriptionsPaid_Members">
+    <End Role="Members" Type="TopCareModel.Store.Members" Multiplicity="0..1" />
+    <End Role="MemberSubscriptionsPaid" Type="TopCareModel.Store.MemberSubscriptionsPaid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="MemberSubscriptionsPaid">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScheduleDetails_Schedules">
+    <End Role="Schedules" Type="TopCareModel.Store.Schedules" Multiplicity="0..1" />
+    <End Role="ScheduleDetails" Type="TopCareModel.Store.ScheduleDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Schedules">
+        <PropertyRef Name="ScheduleID" />
+      </Principal>
+      <Dependent Role="ScheduleDetails">
+        <PropertyRef Name="ScheduleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

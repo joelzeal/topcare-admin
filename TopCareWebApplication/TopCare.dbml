@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TopCare" Class="TopCareDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\sql2008_r2;Initial Catalog=TopCare;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TopCareConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CompanyProfile" Member="CompanyProfiles">
+    <Type Name="CompanyProfile">
+      <Column Name="CompanyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SmtpServer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="smtpPort" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SmtpEmailAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SmtpPassword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SubscriptionFeeToBeCharged" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TransportationOptions" Member="TransportationOptions">
+    <Type Name="TransportationOption">
+      <Column Name="TransportationOptionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MustHaveMembershipID" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NumberToCall" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MemberAttendance" Member="MemberAttendances">
+    <Type Name="MemberAttendance">
+      <Column Name="MemberAttendanceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MemberID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HasAttended" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HasPaid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AmountPaid" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="PaymentRecievedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PaymentMethodID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PaymentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Narration" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsFeeWaived" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Member_MemberAttendance" Member="Member" ThisKey="MemberID" OtherKey="MemberID" Type="Member" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Schedule_MemberAttendance" Member="Schedule" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Schedule" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Members" Member="Members">
+    <Type Name="Member">
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Postcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NationalityID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DietaryRequirements" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="NextOfKin_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NextOfKin_Address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NextOfKin_Postcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NextOfKin_PhoneNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhoneNumber1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhoneNumber2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhoneNumber3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmailAddress" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MemberTransportationID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TransportationOptionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Member_MemberAttendance" Member="MemberAttendances" ThisKey="MemberID" OtherKey="MemberID" Type="MemberAttendance" />
+      <Association Name="Member_MemberSubscriptionsPaid" Member="MemberSubscriptionsPaids" ThisKey="MemberID" OtherKey="MemberID" Type="MemberSubscriptionsPaid" />
+      <Association Name="Member_AddonService" Member="AddonServices" ThisKey="MemberID" OtherKey="MemberId" Type="AddonService" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MemberSubscriptionsPaid" Member="MemberSubscriptionsPaids">
+    <Type Name="MemberSubscriptionsPaid">
+      <Column Name="MemberSubscriptionPaidID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MemberID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AmountPaid" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="PaymentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PaymentRecievedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsOpen" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ExpiryDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IsWaived" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Member_MemberSubscriptionsPaid" Member="Member" ThisKey="MemberID" OtherKey="MemberID" Type="Member" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Nationalities" Member="Nationalities">
+    <Type Name="Nationality">
+      <Column Name="NationalityID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Decription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PaymentMethods" Member="PaymentMethods">
+    <Type Name="PaymentMethod">
+      <Column Name="PaymentMethodID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PreScheduleFollowup" Member="PreScheduleFollowups">
+    <Type Name="PreScheduleFollowup">
+      <Column Name="PreScheduleFollowupID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FollowupDoneBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PreScheduleFollowup_PreScheduleFollowupDetail" Member="PreScheduleFollowupDetails" ThisKey="PreScheduleFollowupID" OtherKey="PreScheduleFollowupID" Type="PreScheduleFollowupDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PreScheduleFollowupDetails" Member="PreScheduleFollowupDetails">
+    <Type Name="PreScheduleFollowupDetail">
+      <Column Name="PreScheduleFollowupDetailID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TransportArrangementStatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MemberID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RSVPStatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PickOffTime" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="DropOffTime" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PreScheduleFollowupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsTransportBooked" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="PreScheduleFollowup_PreScheduleFollowupDetail" Member="PreScheduleFollowup" ThisKey="PreScheduleFollowupID" OtherKey="PreScheduleFollowupID" Type="PreScheduleFollowup" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RSVPStatus" Member="RSVPStatus">
+    <Type Name="RSVPStatus">
+      <Column Name="RSVPStatusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(70)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ScheduleDetails" Member="ScheduleDetails">
+    <Type Name="ScheduleDetail">
+      <Column Name="ScheduleDetailID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Item" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="EndTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Association Name="Schedule_ScheduleDetail" Member="Schedule" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="Schedule" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Schedules" Member="Schedules">
+    <Type Name="Schedule">
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateOfEvent" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MealsToBeServed" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProgramTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PaymentExpected" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Team" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="Schedule_MemberAttendance" Member="MemberAttendances" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="MemberAttendance" />
+      <Association Name="Schedule_ScheduleDetail" Member="ScheduleDetails" ThisKey="ScheduleID" OtherKey="ScheduleID" Type="ScheduleDetail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SubscriptionYears" Member="SubscriptionYears">
+    <Type Name="SubscriptionYear">
+      <Column Name="SubscriptionYearID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="YearStartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="YearEndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TeamMembers" Member="TeamMembers">
+    <Type Name="TeamMember">
+      <Column Name="TeamMemberID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TeamMemberFirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TeamMemberLastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TransportArrangementStatus" Member="TransportArrangementStatus">
+    <Type Name="TransportArrangementStatus">
+      <Column Name="TransportArrangementStatusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwMemberAttendance" Member="vwMemberAttendances">
+    <Type Name="vwMemberAttendance">
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MemberAttendanceID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MemberID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HasAttended" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HasPaid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AmountPaid" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="PaymentRecievedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PaymentMethodID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PaymentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Narration" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsFeeWaived" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsSubscriptionPaid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfEvent" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwSubscriptionSummary" Member="vwSubscriptionSummaries">
+    <Type Name="vwSubscriptionSummary">
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MemberAttendanceID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ScheduleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MemberID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HasAttended" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HasPaid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AmountPaid" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="PaymentRecievedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PaymentMethodID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PaymentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Narration" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsFeeWaived" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsSubscriptionPaid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubscriptionAmountPaid" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="DateOfEvent" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Team" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="weeklyPayment" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="weeklyPaymentDesc" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwPreScheduleFollowup" Member="vwPreScheduleFollowups">
+    <Type Name="vwPreScheduleFollowup">
+      <Column Name="Name" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PreScheduleFollowupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RSVPStatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PickOffTime" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="DropOffTime" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsTransportBooked" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PreScheduleFollowupDetailID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhoneNumber2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhoneNumber3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MemberTransportationID" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProgrameTimeTemplate" Member="ProgrameTimeTemplates">
+    <Type Name="ProgrameTimeTemplate">
+      <Column Name="ItemID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="EndTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Template" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NotificationStaff" Member="NotificationStaffs">
+    <Type Name="NotificationStaff">
+      <Column Name="NotificationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(90)" CanBeNull="true" />
+      <Column Name="IsDisplayed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsCancelled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsEmailNotification" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsDisplayOnScreenNotification" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsMobileTextNotification" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DisplayedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CancelledDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NotificationTypes" Member="NotificationTypes">
+    <Type Name="NotificationType">
+      <Column Name="NotificationTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="NotificationType_Notification" Member="Notifications" ThisKey="NotificationTypeID" OtherKey="NotificationTypeID" Type="Notification" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Notifications" Member="Notifications">
+    <Type Name="Notification">
+      <Column Name="NotificationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NotificationTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsVisibility" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NotificationYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="NotificationType_Notification" Member="NotificationType" ThisKey="NotificationTypeID" OtherKey="NotificationTypeID" Type="NotificationType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AddonServices" Member="AddonServices">
+    <Type Name="AddonService">
+      <Column Name="AddonServiceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AddonServiceTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ServiceDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StaffID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MemberId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Member_AddonService" Member="Member" ThisKey="MemberId" OtherKey="MemberID" Type="Member" IsForeignKey="true" />
+      <Association Name="AddonServiceType_AddonService" Member="AddonServiceType" ThisKey="AddonServiceTypeId" OtherKey="AddonServiceTypeId" Type="AddonServiceType" IsForeignKey="true" />
+      <Association Name="DBSSTaff_AddonService" Member="DBSSTaff" ThisKey="StaffID" OtherKey="DBSStaffID" Type="DBSSTaff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AddonServiceTypes" Member="AddonServiceTypes">
+    <Type Name="AddonServiceType">
+      <Column Name="AddonServiceTypeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="AddonServiceType_AddonService" Member="AddonServices" ThisKey="AddonServiceTypeId" OtherKey="AddonServiceTypeId" Type="AddonService" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DBSSTaff" Member="DBSSTaffs">
+    <Type Name="DBSSTaff">
+      <Column Name="DBSStaffID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IssueDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DBSNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EmailAddress" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(90)" CanBeNull="true" />
+      <Association Name="DBSSTaff_AddonService" Member="AddonServices" ThisKey="DBSStaffID" OtherKey="StaffID" Type="AddonService" />
+    </Type>
+  </Table>
+  <Function Name="dbo.IsSubscriptionPaid" Method="IsSubscriptionPaid" IsComposable="true">
+    <Parameter Name="MemberID" Parameter="memberID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Boolean" />
+  </Function>
+</Database>
